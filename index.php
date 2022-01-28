@@ -36,11 +36,16 @@ $censParagraph = str_ireplace($cens, "***", $paragraph, $count);
         <strong>
             <?= 'LUNGHEZZA PARAGRAFO: ', $parLength;?>
         </strong>
-    <?= '<h2>CONTENUTO PARAGRAFO CON CENSURA</h2>' ?>
     </p>
+    <div>
+
+        <?= '<h2>CONTENUTO PARAGRAFO CON CENSURA</h2>' ?>
         <!-- stampa elemento censurato -->
-        <?= '<strong>Elemento censurato: ', $cens,'</strong><hr>'; ?>
+        <?= '<strong>Elemento censurato: ', $cens,'</strong>'; ?>
+    </div>
+    <p>
         <!-- Stampa della frase con censura -->
         <?= $censParagraph; ?>
+    </p>
 </body>
 </html>
