@@ -16,6 +16,8 @@ $parLength = strlen($paragraph);
 $cens = $_GET['cens'];
 // Rimpiazza tutte le occorrenze con ***
 $censParagraph = str_ireplace($cens, "***", $paragraph, $count);
+$censParagraphLength = strlen($censParagraph);
+$censLength = $censParagraphLength - $count * strlen($cens);
 ?>
 
 <!DOCTYPE html>
@@ -38,7 +40,7 @@ $censParagraph = str_ireplace($cens, "***", $paragraph, $count);
         </strong>
     </p>
     <div>
-
+        
         <?= '<h2>CONTENUTO PARAGRAFO CON CENSURA</h2>' ?>
         <!-- stampa elemento censurato -->
         <?= '<strong>Elemento censurato: ', $cens,'</strong>'; ?>
@@ -46,6 +48,11 @@ $censParagraph = str_ireplace($cens, "***", $paragraph, $count);
     <p>
         <!-- Stampa della frase con censura -->
         <?= $censParagraph; ?>
+        <!-- stampa lunghezza paragrafo -->
+        <strong>
+            <?= '<hr>LUNGHEZZA PARAGRAFO: ', $censParagraphLength?>
+            <?= '<br>LUNGHEZZA PARAGRAFO NON CONSIDERANDO ELEMENTI CENSURATI: ', $censLength?>
+        </strong>
     </p>
 </body>
 </html>
