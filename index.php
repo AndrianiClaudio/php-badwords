@@ -39,7 +39,7 @@ $censParagraph = str_ireplace($cens, "***", $paragraph, $count);
     <?= '<h2>CONTENUTO PARAGRAFO CON CENSURA</h2>' ?>
     </p>
         <!-- stampa elemento censurato -->
-        <?= '<strong>Elemento censurato: ', $cens,'<hr>'; ?>
+        <?= '<strong>Elemento censurato: ', $cens,'</strong><hr>'; ?>
         <!-- Stampa della frase con censura -->
         <?= $censParagraph; ?>
 </body>
