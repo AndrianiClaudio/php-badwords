@@ -1,4 +1,6 @@
 <?php
+// CONSEGNA
+// ========
 // Creare una variabile con un paragrafo di testo a vostra scelta.
 // Stampare a schermo il paragrafo e la sua lunghezza.
 // Una parola da censurare viene passata dall’utente tramite parametro GET.
@@ -6,12 +8,14 @@
 // ========================================
 // Definizione variabili
 // paragrafo di testo
-$paragraph = "Questo paragrafo ha una lunghezza di 50 caratteri!";
+$paragraph = 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto delectus blanditiis nisi iste nobis recusandae maiores, quo, placeat temporibus alias veniam molestiae. Dolore ea ducimus laboriosam odio perferendis possimus beatae! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto delectus blanditiis nisi iste nobis recusandae maiores, quo, placeat temporibus alias veniam molestiae. Dolore ea ducimus laboriosam odio perferendis possimus beatae!';
 // variabile contentente lunghezza del paragrafo
 $parLength = strlen($paragraph);
 //ottieniamo tramite GET la parola da censurare
 // nell'url inseriamento ?cens='variabile'
 $cens = $_GET['cens'];
+// Rimpiazza tutte le occorrenze con ***
+$censParagraph = str_ireplace($cens, "***", $paragraph, $count);
 ?>
 
 <!DOCTYPE html>
@@ -23,14 +27,20 @@ $cens = $_GET['cens'];
     <title>PHP - BADWORDS</title>
 </head>
 <body>
+    <?= '<h1>CONTENUTO PARAGRAFO ORIGINALE</h1>' ?>
     <p>
-        <?php
-        // var_dump($paragraph); check variabile
-        // stampa paragrafo e sua lunghezza
-        echo 'Contenuto del paragrafo: ', $paragraph,
-        '<br>Lunghezza del paragrafo: ', $parLength, ' caratteri';
-        var_dump($cens); // check variabile ottenuta da GET
-        ?>
+        <!-- stampa paragrafo -->
+        <?= $paragraph; ?>
+        <hr>
+        <!-- stampa lunghezza paragrafo -->
+        <strong>
+            <?= 'LUNGHEZZA PARAGRAFO: ', $parLength;?>
+        </strong>
+    <?= '<h2>CONTENUTO PARAGRAFO CON CENSURA</h2>' ?>
     </p>
+        <!-- stampa elemento censurato -->
+        <?= '<strong>Elemento censurato: ', $cens,'<hr>'; ?>
+        <!-- Stampa della frase con censura -->
+        <?= $censParagraph; ?>
 </body>
 </html>
