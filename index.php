@@ -9,6 +9,9 @@
 $paragraph = "Questo paragrafo ha una lunghezza di 50 caratteri!";
 // variabile contentente lunghezza del paragrafo
 $parLength = strlen($paragraph);
+//ottieniamo tramite GET la parola da censurare
+// nell'url inseriamento ?cens='variabile'
+$cens = $_GET['cens'];
 ?>
 
 <!DOCTYPE html>
@@ -17,8 +20,6 @@ $parLength = strlen($paragraph);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- rimuove errore GET favicon.ico -->
-    <link rel="shortcut icon" href="#">
     <title>PHP - BADWORDS</title>
 </head>
 <body>
@@ -28,6 +29,7 @@ $parLength = strlen($paragraph);
         // stampa paragrafo e sua lunghezza
         echo 'Contenuto del paragrafo: ', $paragraph,
         '<br>Lunghezza del paragrafo: ', $parLength, ' caratteri';
+        var_dump($cens); // check variabile ottenuta da GET
         ?>
     </p>
 </body>
